@@ -1,0 +1,8 @@
+excerpt_separator: ""
+pygments: true
+markdown: kramdown
+url: http://dopry.github.io
+title: Darrel O'Pry
+tagline: A log of everyday life
+description: My awesome new site
+paginate: 5
