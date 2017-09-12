@@ -13,7 +13,7 @@ Editors really need a few simple features to do their jobs well.
 
 To make it convenient for editors there should a few additional constraints. 
 
-* no need to install any software.
+* no need to use cli.
 * no need to interact with GitHub.
 
 
@@ -29,7 +29,7 @@ We've tried a few tools in the last few years with varying degrees of success.
 
   Mr. Hyde is an Android app. It gives you a file browser and post editor. It's simple and straight forward to get started with. 
 
-Unfortunately it only runs on Android, and I haven't been able to actually get the previews to work.
+  Unfortunately it only runs on Android, and I haven't been able to actually get the previews to work.
 
 * Netlify CMS
 

@@ -4,5 +4,5 @@ markdown: kramdown
 url: http://dopry.github.io
 title: Darrel O'Pry
 tagline: living one bug at a time...
-description: These are the personal musings and rants of Darrel O'Pry. Darrel is a career technologist and entrepreneur. He currently runs The Spry Group, a full service digital product agency.
+description: These are the personal musings and rants of Darrel O'Pry. Darrel is a career technologist and entrepreneur. He currently runs [The Spry Group](https://spry-group.com), a full service digital product agency.
 paginate: 5
