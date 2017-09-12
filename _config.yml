@@ -3,6 +3,6 @@ pygments: true
 markdown: kramdown
 url: http://dopry.github.io
 title: Darrel O'Pry
-tagline: A log of everyday life
-description: My awesome new site
+tagline: living one bug at a time...
+description: These are the personal musings and rants of Darrel O'Pry. Darrel is a career technologist and entrepreneur. He currently runs The Spry Group, a full service digital product agency.
 paginate: 5
