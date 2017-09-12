@@ -16,8 +16,6 @@ To make it convenient for editors there should a few additional constraints.
 * no need to use cli.
 * no need to interact with GitHub.
 
-<!--more-->
-
 We've tried a few tools in the last few years with varying degrees of success.
 
 * Prose.io
