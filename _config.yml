@@ -1,6 +1,6 @@
 excerpt_separator: ""
-pygments: true
 markdown: kramdown
+highlighter: rouge
 url: http://dopry.github.io
 title: Darrel O'Pry
 tagline: living one bug at a time...
