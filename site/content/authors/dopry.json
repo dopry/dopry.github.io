@@ -1,0 +1,21 @@
+{
+  "name": "Darrel O'Pry",
+  "title": "Entreprenuer, Executive, and Software Architect",
+  "description": "A polyglot (js, php, python, c/c++, c#/.net,  java, shell, ...) windows/unix/web developer and sysadmin. I've been at it professionally since 95.",
+  "thumbnail": "dopry.jpg",
+  "social": [
+    {
+      "name": "Instagram",
+      "url": "https://instagram.com/instagram"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/dopry"
+    },
+    {
+      "name": "Website",
+      "url": "https://darrelopry.com"
+    }
+  ],
+  "skills": ["Business", "Software Architecture"]
+}
