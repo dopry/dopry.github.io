@@ -1,0 +1,41 @@
+---
+title: AnnouncingPecans, an update server for Squirrel
+date: 2021-06-29T21:43:28.692Z
+featured: true
+author: Darrel O'Pry
+category: Development
+tags:
+  - "#electron"
+---
+## TL;DR;
+
+Check out [Pecans](https://github.com/dopry/pecans) if you want an update to date update server for your electron project.
+
+## The Whole Story
+
+On a recent project, we needed an update server for an Electron app using Squirrel. Our goals were to be able to use Github to manage our releases in our private repo and minimize our infrastructure and operating costs. We reviewed the existing options.
+
+* [Electron Release Server](https://github.com/ArekSredzki/electron-release-server)
+
+  We quickly disqualified Electron Release Server. We would be on the hook to store files and provide the bandwidth to download them. We didn't want to take on those costs or the potential overhead. [We're already paying for it with Github. ](https://docs.github.com/en/github/administering-a-repository/releasing-projects-on-github/about-releases)
+
+* [Hazel](https://github.com/zeit/hazel)
+
+  Hazel had a lot of promise. It generates signed download links to files published as a part of a Github Release from a private repo. It had some UI elements we didn't really think were necessary. Our update UIs are all in our app or will be on our website in the future. We really just needed a feed of releases and for download works. We also encountered a number of 500 errors and the issue queue is a litany of unaddressed functional bugs.
+
+* [Nucleus](https://github.com/atlassian/nucleus)
+
+  Like Electron Release Server, Nucleus requires a database and file storage, so not a fit for our case.
+
+* [Nuts](https://github.com/GitbookIO/nuts)
+
+  Nuts just worked when we tried it. Unfortunately, it proxied the downloads from our private repo releases. While it worked, it hadn't seen a commit since 2017 and its dependencies were stale.
+
+If we had to use something out of the box, Nuts would have been our choice. However after some discussion and review of Nuts code, we decided to just go ahead and address our issues. Seeing that the nuts maintainers hadn't been actively maintaining the project for 4 years, we went ahead and forked the project to create [Pecans](https://github.com/dopry/pecans). 
+
+At this juncture, Pecans is an API compatible port of Nuts to ES6, with all dependencies updated, and uses redirects to private downloads instead of proxying.
+
+
+
+
+
