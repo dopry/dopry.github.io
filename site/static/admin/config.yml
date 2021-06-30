@@ -14,6 +14,8 @@
       branch: gatsby
     },
 
+  publish_mode: 'editorial_workflow',
+
   #########################################################################
   #
   #   GatsbyJS prefers relative images to posts but Netlify's media library
@@ -37,7 +39,7 @@
         name: 'articles',
         label: 'Articles',
         label_singular: 'Article',
-        path: '{{category}}/{{slug}}/index',
+        path: '{{year}}/{{month}}/{{slug}}/index',
         folder: 'site/content/posts',
         extension: 'mdx',
         format: 'frontmatter',
@@ -64,6 +66,7 @@
         editor: { preview: false },
         fields:
           [
+            {label: "ID", name: "id", widget: "id" },
             { name: 'title', label: 'Title' },
             {
               name: 'slug',
@@ -150,6 +153,7 @@
         editor: { preview: false },
         fields:
           [
+            {label: "ID", name: "id", widget: "id" },
             { name: 'name', label: 'Name' },
             {
               name: 'slug',
@@ -209,6 +213,7 @@
         editor: { preview: false },
         fields:
           [
+            {label: "ID", name: "id", widget: "id" },
             { name: 'name', label: 'Name' },
             {
               name: 'slug',

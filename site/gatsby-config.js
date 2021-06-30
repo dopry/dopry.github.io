@@ -5,10 +5,12 @@ module.exports = {
   plugins: [
     {
       resolve: 'gatsby-plugin-netlify-cms',
-      options: {}
+      options: {
+        modulePath: `${__dirname}/cms.js`
+      }
     },
     {
-      resolve: '@elegantstack/gatsby-theme-flexiblog-personal',
+      resolve: '@elegantstack/gatsby-theme-flexiblog-minimal',
       options: {
         sources: {
           local: true
@@ -19,7 +21,7 @@ module.exports = {
   // Customize your site metadata:
   siteMetadata: {
     //General Site Metadata
-    title: 'Darrel O\Pry',
+    title: "Darrel O'Pry",
     name: 'Ornery Developer',
     description: 'Living one bug at a time...',
     address: 'Brooklyn, NY',
