@@ -1,0 +1,84 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import { getCollection } from "astro:content";
+import PostTeasers from "../../../components/PostTeasers.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import type { BlogPost } from "../../../types/blog";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const allPosts = (
+    await getCollection("blog", ({ data }) => !data.draft)
+  ).sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
+
+  // Build pages per unique tag
+  const tagMap = new Map();
+  for (const post of allPosts) {
+    const tags = post.data.tags || [];
+    for (const tag of tags) {
+      if (!tagMap.has(tag)) tagMap.set(tag, []);
+      tagMap.get(tag).push(post);
+    }
+  }
+
+  const pageSize = 10;
+  const paths = [];
+  for (const [tag, posts] of tagMap.entries()) {
+    const pages = paginate(posts, { pageSize, params: { tag } });
+    paths.push(...pages);
+  }
+  return paths;
+};
+
+interface Props {
+  page: Page<BlogPost>;
+}
+
+const { page }: Props = Astro.props;
+const { tag } = Astro.params;
+
+const newerHref =
+  page.currentPage === 2
+    ? `/tags/${tag}`
+    : page.currentPage > 2
+      ? `/tags/${tag}/${page.currentPage - 1}`
+      : undefined;
+
+const olderHref =
+  page.currentPage < page.lastPage
+    ? `/tags/${tag}/${page.currentPage + 1}`
+    : undefined;
+---
+
+<BaseLayout>
+  <h1>Tag: {tag}</h1>
+  {
+    page.lastPage > 1 && (
+      <div class="pagination flex justify-between items-center">
+        <div class="w-third">{newerHref && <a href={newerHref}>Newer</a>}</div>
+        <div class="w-third tc">
+          Page {page.currentPage} of {page.lastPage}
+        </div>
+        <div class="w-third tr">
+          {olderHref && <a href={olderHref}>Older</a>}
+        </div>
+      </div>
+    )
+  }
+  <PostTeasers posts={page.data} />
+  {
+    page.lastPage > 1 && (
+      <div class="pagination flex justify-between items-center">
+        <div class="w-third">{newerHref && <a href={newerHref}>Newer</a>}</div>
+        <div class="w-third tc">
+          Page {page.currentPage} of {page.lastPage}
+        </div>
+        <div class="w-third tr">
+          {olderHref && <a href={olderHref}>Older</a>}
+        </div>
+      </div>
+    )
+  }
+</BaseLayout>

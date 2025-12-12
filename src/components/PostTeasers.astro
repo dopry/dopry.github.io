@@ -1,0 +1,22 @@
+---
+import { marked } from "marked";
+import type { BlogPost } from "../types/blog";
+import PostTeaser from "./PostTeaser.astro";
+
+interface Props {
+  posts: BlogPost[];
+}
+
+const { posts } = Astro.props as Props;
+
+const postsWithRenderedDescriptions = posts.map((post) => ({
+  ...post,
+  renderedDescription: post.data.description
+    ? marked(post.data.description)
+    : null,
+}));
+---
+
+<div class="posts">
+  {postsWithRenderedDescriptions.map((post) => <PostTeaser post={post} />)}
+</div>

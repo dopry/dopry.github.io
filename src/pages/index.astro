@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import PostTeasers from "../components/PostTeasers.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const allPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
+
+const currentPosts = allPosts.slice(0, 5);
+---
+
+<BaseLayout>
+  <div class="pa2">
+    <h2>Recent Posts</h2>
+    <PostTeasers posts={currentPosts} />
+  </div>
+</BaseLayout>

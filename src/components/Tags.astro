@@ -1,0 +1,20 @@
+---
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props as Props;
+---
+
+{
+  tags.length > 0 && (
+    <ul class="flex ml0 list">
+      <li class="mr2">tags:</li>
+      {tags?.map((tag: string) => (
+        <li class="mr4 nowrap">
+          <a href={`/tags/${tag}/1`}>{tag}</a>
+        </li>
+      ))}
+    </ul>
+  )
+}

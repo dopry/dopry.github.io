@@ -1,0 +1,108 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  )
+  .slice(0, 5);
+---
+
+<BaseLayout title={"About Me"}>
+  <h1>About Me</h1>
+  <p>
+    I'm Darrel O'Pry — a seasoned technology leader and entrepreneur with over
+    two decades of experience building digital products and leading engineering
+    teams. I'm the founder and principal at
+    <a href="https://spry-group.com" rel="noopener" target="_blank"
+      >The Spry Group</a
+    >, a full-service digital product agency specializing in product strategy,
+    engineering, and operations.
+  </p>
+  <ul class="lh-copy">
+    <li>
+      <strong>Product & Engineering Leadership:</strong> Helping startups and established
+      companies design, build, and scale digital products with modern cloud infrastructure,
+      CI/CD, and DevOps practices.
+    </li>
+    <li>
+      <strong>Current Focus:</strong> Working extensively with <a
+        href="https://wagtail.org/"
+        rel="noopener"
+        target="_blank">Wagtail</a
+      > and headless CMS architectures, combining Django backends with Next.js/React
+      frontends. Maintainer of <a
+        href="https://github.com/jazzband/django-oauth-toolkit"
+        rel="noopener"
+        target="_blank">django-oauth-toolkit</a
+      > and contributor to <a
+        href="https://github.com/torchbox/wagtail-grapple"
+        rel="noopener"
+        target="_blank">wagtail-grapple</a
+      > for GraphQL integration.
+    </li>
+    <li>
+      <strong>Energy & Building Analytics:</strong> BPI Certified Multifamily Building
+      Analyst working with energy engineering firms to build backend data aggregation,
+      analysis, and reporting tools for building performance and energy efficiency
+      projects.
+    </li>
+    <li>
+      <strong>Open Source Legacy:</strong> Long-time contributor to the Drupal ecosystem,
+      known for pioneering work on media handling (ImageField, ImageCache, ImageAPI)
+      and file management systems that influenced modern CMS architectures.
+    </li>
+    <li>
+      <strong>Full-Stack Expertise:</strong> From OAuth/authentication systems and
+      GraphQL APIs to React/Next.js frontends, with deep experience in pragmatic architecture,
+      developer experience, and shipping reliable software.
+    </li>
+    <li>
+      <strong>Mentorship & Community:</strong> Passionate about helping teams bridge
+      strategy, design, and engineering; advocate for lean, testable workflows and
+      continuous improvement.
+    </li>
+  </ul>
+
+  <h2>Profiles</h2>
+  <ul>
+    <li>
+      <a href="https://www.linkedin.com/in/dopry" rel="noopener" target="_blank"
+        >LinkedIn</a
+      >
+    </li>
+    <li>
+      <a href="https://github.com/dopry" rel="noopener" target="_blank"
+        >GitHub</a
+      >
+    </li>
+    <li>
+      <a href="https://twitter.com/dopry" rel="noopener" target="_blank"
+        >Twitter/X</a
+      >
+    </li>
+  </ul>
+
+  <h2>Recent Writing</h2>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Contact</h2>
+  <p>
+    For inquiries, collaborations, or speaking engagements, reach out via
+    LinkedIn or visit <a
+      href="https://spry-group.com/contact"
+      target="_blank"
+      rel="noopener">spry-group.com/contact</a
+    >.
+  </p>
+</BaseLayout>
