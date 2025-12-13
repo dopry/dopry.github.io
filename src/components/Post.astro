@@ -1,8 +1,9 @@
 ---
-import type { BlogPost, BlogImage } from "../types/blog";
+import type { BlogPost } from "../types/blog";
 import { render } from "astro:content";
 import { formatDate } from "../util/formatDate.js";
 import Tags from "./Tags.astro";
+import BlogImage from "./BlogImage.astro";
 
 interface Props {
   post: BlogPost;
@@ -16,27 +17,11 @@ const { Content } = await render(post);
   <h1 class="post-title ba pa2">{post.data.title}</h1>
   <div class="post-date">{formatDate(post.data.pubDate)}</div>
   <Tags tags={post.data.tags} />
-  <!-- <div class="cf"> -->
   {
-    post.data.images?.map((image: BlogImage) => {
-      const img = (
-        <img
-          src={image.url}
-          alt={image.alt || post.data.title}
-          class="fr ml3 mb1"
-        />
-      );
-      if (image.href) {
-        return (
-          <a href={image.href} target="_blank" rel="noopener">
-            {img}
-          </a>
-        );
-      }
-      return img;
-    })
+    post.data.images?.map((image) => (
+      <BlogImage image={image} class="fr ml3 mb1 mw5" width={200} />
+    ))
   }
-  <!-- </div>     -->
 
   <Content />
 </div>

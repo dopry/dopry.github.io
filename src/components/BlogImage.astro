@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import type { BlogImage } from "../types/blog";
+
+interface Props {
+  image: BlogImage;
+  class?: string;
+  width?: number;
+  height?: number;
+}
+
+const { image, class: className, width, height } = Astro.props;
+---
+
+{
+  image.href ? (
+    <a href={image.href} target="_blank" rel="noopener">
+      <Image
+        src={image.url}
+        alt={image.alt || ""}
+        width={width}
+        height={height}
+        inferSize={!width || !height}
+        class={className}
+      />
+    </a>
+  ) : (
+    <Image
+      src={image.url}
+      alt={image.alt || ""}
+      width={width}
+      height={height}
+      inferSize={!width && !height}
+      class={className}
+    />
+  )
+}

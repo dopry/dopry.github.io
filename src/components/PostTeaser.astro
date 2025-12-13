@@ -3,6 +3,7 @@ import { marked } from "marked";
 import type { BlogPost } from "../types/blog";
 import { formatDate } from "../util/formatDate.js";
 import Tags from "./Tags.astro";
+import BlogImage from "./BlogImage.astro";
 
 interface Props {
   post: BlogPost;
@@ -28,7 +29,7 @@ const renderedDescription = post.data.description
   <div class="cf"></div>
   {
     post.data.images.map((image) => (
-      <img src={image.url} alt={image.alt || post.data.title} class="fl ma2" />
+      <BlogImage image={image} class="fl ma2" width={150} />
     ))
   }
 </div>

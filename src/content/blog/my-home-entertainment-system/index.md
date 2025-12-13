@@ -7,7 +7,7 @@ tags:
   - entertainment
   - electrovoice
 images:
-  - url: /images/entertainment.jpg
+  - url: ./entertainment.jpg
 ---
 
 I'm in love with electronic music and social gatherings. I've been helping produce and promote electronic music events since I moved to New York. I've always wanted my own sound system. I've been eyeing and auditioning EAW's for years. I've worked with them professionally and never been disappointed. I really want them, but they're too expensive for me to justify the cost.

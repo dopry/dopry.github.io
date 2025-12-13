@@ -3,7 +3,7 @@ title: "Finally... Personal blog on D7"
 pubDate: 2012-07-06T00:00:00
 description: "At long last I've upgraded to D7."
 images:
-  - url: /images/d7-contributor-cloud-small.png
+  - url: ./d7-contributor-cloud-small.png
     alt: D7 Contibutors Cloud
 tags:
   - drupal
