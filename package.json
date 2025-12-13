@@ -1,0 +1,19 @@
+{
+  "name": "dopry.github.io",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Darrel O'Pry's personal blog - Jekyll to Astro migration",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/rss": "^4.0.14",
+    "astro": "^5.16.5",
+    "marked": "^17.0.1",
+    "typescript": "^5.9.3"
+  }
+}

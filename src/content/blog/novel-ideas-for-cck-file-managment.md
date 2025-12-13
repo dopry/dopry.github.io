@@ -1,0 +1,13 @@
+---
+title: "Novel Ideas for CCK file managment....."
+pubDate: 2006-08-12T00:00:00
+description: It may be interesting in drupal to have a cck node type of content-folder, then either use a filefield on the 'content-folder' node or a nodereference with a link to a 'content-file' with a filefield. You could create file hierarchies / file management workflows....
+tags:
+  - drupal
+---
+
+It may be interesting in drupal to have a cck node type of content-folder, then either use a filefield on the 'content-folder' node or a nodereference with a link to a 'content-file' with a filefield. You could create file hierarchies / file management workflows....
+
+Now if only actions.module provided some way to have actions target an object type like node, file, comment, user, none'....
+
+Then we could get supah funky...

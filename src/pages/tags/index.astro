@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import TagCloud from "../../components/TagCloud.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)) || [];
+
+const tagCounts = Array.from(
+  posts.reduce((acc, post) => {
+    for (const tag of post.data.tags || []) {
+      acc.set(tag, (acc.get(tag) || 0) + 1);
+    }
+    return acc;
+  }, new Map())
+).sort(([a], [b]) => a.localeCompare(b));
+---
+
+<BaseLayout title="Tags">
+  <section class="pa3">
+    <h1>All Tags</h1>
+    {
+      tagCounts.length === 0 ? (
+        <p>No tags found.</p>
+      ) : (
+        <div class="flex flex-wrap-l">
+          <div class="w-100 w-50-l pr0 pr3-l mb3">
+            <h3 class="mt0">List</h3>
+            <ul class="list pl0">
+              {tagCounts.map(([tag, count]) => (
+                <li class="mb2">
+                  <a href={`/tags/${tag}/1`}>{tag}</a>
+                  <span class="ml2">({count})</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="w-100 w-50-l pl0 pl3-l mb3">
+            <h3 class="mt0">Tag Cloud</h3>
+            <TagCloud tagCounts={tagCounts} />
+          </div>
+        </div>
+      )
+    }
+  </section>
+</BaseLayout>
