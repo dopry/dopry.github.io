@@ -52,6 +52,15 @@ img {
   display: block;
   margin: 0 auto;
   max-width: 100%;
+  /* Convert to grayscale, then apply sepia, then shift hue to green */
+  filter: grayscale(100%) sepia(100%) hue-rotate(50deg) saturate(300%)
+    brightness(0.8);
+  transition: filter 0.3s ease-in-out;
+}
+
+img:hover {
+  /* Show original colors on hover */
+  filter: none;
 }
 
 ul,

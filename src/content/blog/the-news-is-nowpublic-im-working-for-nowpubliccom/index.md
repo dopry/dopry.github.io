@@ -6,7 +6,7 @@ tags:
   - jobs
   - excitement
 images:
-  - url: /images/header-logo.gif
+  - url: ./header-logo.gif
     alt: NowPublic Logo
 ---
 

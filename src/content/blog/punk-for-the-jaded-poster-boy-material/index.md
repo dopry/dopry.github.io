@@ -4,9 +4,9 @@ pubDate: 2007-12-28T00:00:00
 description: I'm a jaded post punk punk rocker, you got a problem with it? I never dug the fashion element, nor the angry element. I always loved the political and consciously rebellious elements. I missed the real punk era, the Vandals, Sex Pistols, Cramps, et. al. I did catch the waning tide of op ivy, dead kennedys, mxpx, pennywise, nofx, nomeansno, etc, etc...
 
 images:
-  - url: /images/posterboymaterial1.jpg
+  - url: ./posterboymaterial1.jpg
     href: https://www.discogs.com/release/8670024-Poster-Boy-Material-Already-Happening
-  - url: /images/posterboymaterial2.jpg
+  - url: ./posterboymaterial2.jpg
     href: https://www.discogs.com/release/15333874-Poster-Boy-Material-Entitled-to-Human-Rights
 tags:
   - music

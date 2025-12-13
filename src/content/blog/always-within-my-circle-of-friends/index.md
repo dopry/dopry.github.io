@@ -7,9 +7,9 @@ tags:
   - paths
   - life
 images:
-  - url: /images/shannon_tattoo_mod2.jpg
-  - url: /images/shannon_tattoo_mod1.jpg
-  - url: /images/shannon_tattoo_mod8.jpg
+  - url: ./shannon_tattoo_mod2.jpg
+  - url: ./shannon_tattoo_mod1.jpg
+  - url: ./shannon_tattoo_mod8.jpg
 ---
 
 'The Tao Te Ching whispers more wisdom than Nietzsche',

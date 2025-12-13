@@ -3,7 +3,7 @@ title: "Diving into Windows 8, It's easy to get your Desktop Back."
 pubDate: 2012-09-27T00:00:00
 description: I've head a lot of FUD regarding Windows 8 and the Metro UI. It seems people are primarily frustrated by the removal of the old start menu and the promotion of the new MetroUI as the primary interface on the desktop. I have to agree that the Metro UI being a bad choice for me as a developer or for most of the business users I work with.
 images:
-  - url: /images/Windows-8-logo-300x300.jpg
+  - url: ./Windows-8-logo-300x300.jpg
     alt: Windows 8 Logo
 tags:
   - Windows 8

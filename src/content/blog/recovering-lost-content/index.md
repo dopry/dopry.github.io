@@ -6,6 +6,8 @@ description: About a decade ago in a fit of pique after my old drupal site got h
 tags:
   - data recovery
   - archives
+images:
+  - url: ./internet-archive.svg
 ---
 
 About a decade ago in a fit of pique after my old drupal site got hacked, I just rm -rf'd the whole server and all it's backups. At the time I had moved on from Drupal and the Drupal community and was busy with the Spry Group. Recently, I started thinking about what is next in my career. I decided I want to start looking for a senior technical executive role. When I started reviewing my online presence... I was not impressed and began regretting having trashed my old drupal site...

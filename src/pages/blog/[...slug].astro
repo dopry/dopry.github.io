@@ -1,43 +1,23 @@
 ---
 import { getCollection } from "astro:content";
-import PostLayout from "../../layouts/PostLayout.astro";
+import Post from "../../components/Post.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
-    (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-  );
-
-  return posts.map((post, idx) => {
-    const prev = idx > 0 ? posts[idx - 1] : undefined; // newer post
-    const next = idx < posts.length - 1 ? posts[idx + 1] : undefined; // older post
-
-    return {
-      params: { slug: post.slug },
-      props: {
-        post,
-        prev: prev ? { slug: prev.slug, title: prev.data.title } : null,
-        next: next ? { slug: next.slug, title: next.data.title } : null,
-      },
-    };
-  });
-}
-
-interface Neighbor {
-  slug: string;
-  title: string;
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
 }
 
 interface Props {
   post: any;
-  prev: Neighbor | null;
-  next: Neighbor | null;
 }
 
-const { post, prev, next } = Astro.props;
-const { Content } = await post.render();
+const { post } = Astro.props;
 ---
 
-<PostLayout post={post} prev={prev} next={next}>
-  <Content />
-</PostLayout>
+<BaseLayout title={post.data.title}>
+  <Post post={post} />
+</BaseLayout>

@@ -39,8 +39,7 @@
             "type": "object",
             "properties": {
               "url": {
-                "type": "string",
-                "minLength": 1
+                "type": "string"
               },
               "alt": {
                 "type": "string"

@@ -3,7 +3,7 @@ title: "Installing `bzr` on Media Temple(GS)"
 pubDate: 2008-05-28T00:00:00
 description: I've been migrating a few personal development sites to Media Temple's Grid Service. I normally use `bzr` to manage my websites through development and roll out.
 images:
-  - url: /images/mt-gs.jpg
+  - url: ./mt-gs.jpg
     alt: MediaTemple Logo
 tags:
   - bzr
